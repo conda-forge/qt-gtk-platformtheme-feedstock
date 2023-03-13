@@ -4,3 +4,11 @@ github:
 conda_build:
   error_overlinking: true
 conda_forge_output_validation: true
+os_version:
+  linux_64: cos7
+provider:
+  linux_aarch64: azure
+  linux_ppc64le: azure
+build_platform:
+  linux_aarch64: linux_aarch64
+  linux_ppc64le: linux_ppc64le
