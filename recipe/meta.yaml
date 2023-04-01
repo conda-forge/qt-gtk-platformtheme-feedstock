@@ -16,7 +16,7 @@ build:
   skip: true  # [ppc64le]
   detect_binary_files_with_prefix: true
   run_exports:
-    - {{ pin_subpackage('qt-gtk-platformtheme', max_pin='x.x') }}
+    - {{ pin_subpackage('qt6-gtk-platformtheme', max_pin='x.x') }}
 
 requirements:
   build:
