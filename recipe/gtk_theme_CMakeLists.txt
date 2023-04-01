@@ -14,6 +14,7 @@ else()
     set(CMAKE_CXX_STANDARD 14)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
     set(QT_VERSION_MAJOR "5")
+    # ThemeSupport neeeds to be added to the list of components required for Qt5
 endif()
 
 find_package(Qt${QT_VERSION_MAJOR} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
@@ -21,7 +22,6 @@ find_package(Qt${QT_VERSION_MAJOR} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     DBus
     Gui
     Widgets
-    ThemeSupport
 )
 
 if (NOT QT_PLUGINS_DIR)
