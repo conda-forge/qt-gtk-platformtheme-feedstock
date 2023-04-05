@@ -27,7 +27,7 @@ requirements:
     - perl
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
-    - qt6-main {{ version }}             # [build_platform != target_platform]
+    - qt6-main {{ version }}=*_2         # [build_platform != target_platform]
     - sysroot_linux-64 2.17              # [linux]
     - {{ cdt('mesa-libgl-devel') }}      # [linux]
     - {{ cdt('mesa-libegl-devel') }}     # [linux]
@@ -36,7 +36,7 @@ requirements:
     - {{ cdt('libglvnd-glx') }}          # [linux]
     - {{ cdt('libglvnd-egl') }}          # [linux]
   host:
-    - qt6-main {{ version }}
+    - qt6-main {{ version }}=*_2
     - glib
     - gtk3
     - pango
