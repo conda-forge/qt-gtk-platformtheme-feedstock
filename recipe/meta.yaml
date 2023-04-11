@@ -54,9 +54,6 @@ requirements:
     - qt6-main {{ version }}
 
 test:
-  requires:
-    # See https://github.com/conda-forge/gtk3-feedstock/pull/59
-    - xorg-libxcursor
   commands:
     - test -f "${PREFIX}/lib/qt6/plugins/platformthemes/libqgtk3${SHLIB_EXT}"
 
