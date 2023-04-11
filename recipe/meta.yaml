@@ -1,20 +1,22 @@
-{% set version = "5.15.8" %}
+{% set version = "6.4.3" %}
 
 package:
-  name: qt-gtk-platformtheme
+  name: qt6-gtk-platformtheme
   version: {{ version }}
 
 source:
   # We only need to download the smaller qt-base, not qt-main for this plugin
-  url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qtbase-everywhere-opensource-src-{{ version }}.tar.xz
-  sha256: bfb11126c7f3abc3fdf86425ce912988b864a7e79a606d77325cffdbacb4be9c  # 5.15.8
+  url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qtbase-everywhere-src-{{ version }}.tar.xz
+  sha256: 5087c9e5b0165e7bc3c1a4ab176b35d0cd8f52636aea903fa377bdba00891a60
 
 build:
   number: 0
   skip: true  # [not linux]
+  # ppc64le not yet built for qt6
+  skip: true  # [ppc64le]
   detect_binary_files_with_prefix: true
   run_exports:
-    - {{ pin_subpackage('qt-gtk-platformtheme', max_pin='x.x') }}
+    - {{ pin_subpackage('qt6-gtk-platformtheme', max_pin='x.x') }}
 
 requirements:
   build:
@@ -25,7 +27,7 @@ requirements:
     - perl
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
-    - qt-main {{ version }}             # [build_platform != target_platform]
+    - qt6-main {{ version }}=*_2         # [build_platform != target_platform]
     - sysroot_linux-64 2.17              # [linux]
     - {{ cdt('mesa-libgl-devel') }}      # [linux]
     - {{ cdt('mesa-libegl-devel') }}     # [linux]
@@ -34,7 +36,7 @@ requirements:
     - {{ cdt('libglvnd-glx') }}          # [linux]
     - {{ cdt('libglvnd-egl') }}          # [linux]
   host:
-    - qt-main {{ version }}
+    - qt6-main {{ version }}=*_2
     - glib
     - gtk3
     - pango
@@ -49,16 +51,19 @@ requirements:
     - xorg-xineramaproto
   run:
     # We want to be pinned to the exact qt version
-    - qt-main {{ version }}
+    - qt6-main {{ version }}
 
 test:
   commands:
-    - test -f "${PREFIX}/plugins/platformthemes/libqgtk3${SHLIB_EXT}"
+    - test -f "${PREFIX}/lib/qt6/plugins/platformthemes/libqgtk3${SHLIB_EXT}"
 
 about:
   home: http://qt-project.org
-  license: LGPL-3.0-only
-  license_file: LICENSE.LGPLv3
+  license: LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
+  license_file:
+    - LICENSES/LGPL-3.0-only.txt
+    - LICENSES/GPL-2.0-only.txt
+    - LICENSES/GPL-3.0-only.txt
   summary: Qt GTK3 platform theme
   dev_url: https://github.com/qt/qtbase/tree/5.15/src/plugins/platformthemes/gtk3
 
@@ -66,3 +71,4 @@ about:
 extra:
   recipe-maintainers:
     - conda-forge/qt-main
+  feedstock-name: qt-gtk-platformtheme
