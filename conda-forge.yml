@@ -9,4 +9,4 @@ os_version:
 provider:
   linux_aarch64: default
 build_platform:
-  linux_aarch64: linux_aarch64
+  linux_aarch64: linux_64
