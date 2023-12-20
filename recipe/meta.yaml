@@ -1,4 +1,4 @@
-{% set version = "5.15.8" %}
+{% set version = "5.15.12" %}
 
 package:
   name: qt-gtk-platformtheme
@@ -7,7 +7,7 @@ package:
 source:
   # We only need to download the smaller qt-base, not qt-main for this plugin
   url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qtbase-everywhere-opensource-src-{{ version }}.tar.xz
-  sha256: bfb11126c7f3abc3fdf86425ce912988b864a7e79a606d77325cffdbacb4be9c  # 5.15.8
+  sha256: 4c01b7b0f1f3c1e05ae6bf53c66e49c65c6b3872475bac26b0fb228136914af0  # 5.15.8
 
 build:
   number: 0
