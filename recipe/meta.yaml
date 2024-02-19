@@ -1,4 +1,4 @@
-{% set version = "6.6.1" %}
+{% set version = "6.6.2" %}
 
 package:
   name: qt6-gtk-platformtheme
@@ -10,7 +10,7 @@ source:
   sha256: 450c5b4677b2fe40ed07954d7f0f40690068e80a94c9df86c2c905ccd59d02f7
 
 build:
-  number: 1
+  number: 0
   skip: true  # [not linux]
   # ppc64le not yet built for qt6
   skip: true  # [ppc64le]
