@@ -14,4 +14,4 @@ build_platform:
   linux_ppc64le: linux_ppc64le
 bot:
   abi_migration_branches:
-  - qt6
+  - 'qt6'
