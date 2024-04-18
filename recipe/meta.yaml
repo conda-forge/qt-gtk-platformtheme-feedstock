@@ -7,7 +7,7 @@ package:
 source:
   # We only need to download the smaller qt-base, not qt-main for this plugin
   url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qtbase-everywhere-src-{{ version }}.tar.xz
-  sha256: 31a1e0c69bb37e6631de02f8cf0b75afdc2ce44890c32dac38d362c251c12483
+  sha256: 11b2e29e2e52fb0e3b453ea13bbe51a10fdff36e1c192d8868c5a40233b8b254
 
 build:
   number: 0
