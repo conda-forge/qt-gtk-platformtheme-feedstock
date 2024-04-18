@@ -1,4 +1,4 @@
-{% set version = "6.6.2" %}
+{% set version = "6.7.0" %}
 
 package:
   name: qt6-gtk-platformtheme
@@ -7,7 +7,7 @@ package:
 source:
   # We only need to download the smaller qt-base, not qt-main for this plugin
   url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qtbase-everywhere-src-{{ version }}.tar.xz
-  sha256: b89b426b9852a17d3e96230ab0871346574d635c7914480a2a27f98ff942677b
+  sha256: 11b2e29e2e52fb0e3b453ea13bbe51a10fdff36e1c192d8868c5a40233b8b254
 
 build:
   number: 0
