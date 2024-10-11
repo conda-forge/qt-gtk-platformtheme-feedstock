@@ -30,6 +30,9 @@ requirements:
     - {{ stdlib('c') }}
     - qt6-main {{ version }}             # [build_platform != target_platform]
   host:
+    - libdrm                             # [linux]
+    - libgl-devel                        # [linux]
+    - libegl-devel                       # [linux]
     - qt6-main {{ version }}
     - glib
     - gtk3
