@@ -1,6 +1,6 @@
-project(QtGTKPlatformTheme)
-
 cmake_minimum_required(VERSION 3.16)
+
+project(QtGTKPlatformTheme)
 
 set(QT_MIN_VERSION "6.8.0")
 set(CMAKE_CXX_STANDARD 17)
@@ -15,15 +15,7 @@ find_package(Qt${QT_VERSION_MAJOR} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
 )
 
 if (NOT QT_PLUGINS_DIR)
-    if (NOT USE_QT6)
-        get_target_property(REAL_QMAKE_EXECUTABLE ${Qt5Core_QMAKE_EXECUTABLE}
-                            IMPORTED_LOCATION)
-        execute_process(COMMAND "${REAL_QMAKE_EXECUTABLE}" -query QT_INSTALL_PLUGINS
-                        OUTPUT_VARIABLE QT_PLUGINS_DIR
-                        ERROR_QUIET OUTPUT_STRIP_TRAILING_WHITESPACE)
-    else()
-        set(QT_PLUGINS_DIR ${QT6_INSTALL_PLUGINS})
-    endif()
+    set(QT_PLUGINS_DIR ${QT6_INSTALL_PLUGINS})
 endif()
 
 find_package(PkgConfig REQUIRED)
@@ -53,9 +45,6 @@ target_link_libraries(qgtk3
     Qt${QT_VERSION_MAJOR}::GuiPrivate
 )
 
-if (NOT USE_QT6)
-    target_link_libraries(qgtk3 Qt5::ThemeSupportPrivate)
-endif()
 set_property(TARGET qgtk3 PROPERTY AUTOMOC ON)
 
 install(TARGETS qgtk3 DESTINATION ${QT_PLUGINS_DIR}/platformthemes)
