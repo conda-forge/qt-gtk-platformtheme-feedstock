@@ -2,20 +2,10 @@ project(QtGTKPlatformTheme)
 
 cmake_minimum_required(VERSION 3.16)
 
-option(USE_QT6 "Use Qt6 instead of Qt5" OFF)
-
-if (USE_QT6)
-    set(QT_MIN_VERSION "6.2.0")
-    set(CMAKE_CXX_STANDARD 17)
-    set(CMAKE_CXX_STANDARD_REQUIRED ON)
-    set(QT_VERSION_MAJOR "6")
-else()
-    set(QT_MIN_VERSION "5.15.2")
-    set(CMAKE_CXX_STANDARD 14)
-    set(CMAKE_CXX_STANDARD_REQUIRED ON)
-    set(QT_VERSION_MAJOR "5")
-    # ThemeSupport neeeds to be added to the list of components required for Qt5
-endif()
+set(QT_MIN_VERSION "6.8.0")
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(QT_VERSION_MAJOR "6")
 
 find_package(Qt${QT_VERSION_MAJOR} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
@@ -45,7 +35,7 @@ find_package(X11 REQUIRED)
 set(gtk_theme_SRCS
     main.cpp
     qgtk3dialoghelpers.cpp qgtk3dialoghelpers.h
-    qgtk3menu.cpp qgtk3menu.h
+    qgtk3portalinterface.cpp
     qgtk3theme.cpp qgtk3theme.h
     qgtk3interface.cpp qgtk3interface_p.h
     qgtk3storage.cpp qgtk3storage_p.h
