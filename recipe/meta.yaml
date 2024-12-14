@@ -46,6 +46,9 @@ requirements:
     - xorg-libxcomposite
     - xorg-libxdamage
     - xorg-xorgproto
+    # Required to find gtk3
+    - freetype
+    - zlib
   run:
     # We want to be pinned to the exact qt version
     - qt6-main {{ version }}
