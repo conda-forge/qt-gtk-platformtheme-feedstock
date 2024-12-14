@@ -20,6 +20,8 @@ cxx_compiler_version:
 - '13'
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:cos7
+freetype:
+- '2'
 gdk_pixbuf:
 - '2'
 glib:
@@ -33,3 +35,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
+zlib:
+- '1'
