@@ -1,4 +1,4 @@
-{% set version = "6.8.0" %}
+{% set version = "6.8.1" %}
 
 package:
   name: qt6-gtk-platformtheme
@@ -7,7 +7,7 @@ package:
 source:
   # We only need to download the smaller qt-base, not qt-main for this plugin
   url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qtbase-everywhere-src-{{ version }}.tar.xz
-  sha256: 1bad481710aa27f872de6c9f72651f89a6107f0077003d0ebfcc9fd15cba3c75
+  sha256: 40b14562ef3bd779bc0e0418ea2ae08fa28235f8ea6e8c0cb3bce1d6ad58dcaf
 
 build:
   number: 0
@@ -23,6 +23,7 @@ requirements:
     - cmake
     - make                               # [unix]
     - jom                                # [win]
+    - pkg-config
     - ninja
     - perl
     - {{ compiler('cxx') }}
@@ -45,7 +46,11 @@ requirements:
     - xorg-libxcursor
     - xorg-libxcomposite
     - xorg-libxdamage
-    - xorg-xineramaproto
+    - xorg-xorgproto
+    # Required to find gtk3
+    - freetype
+    - zlib
+    - liblzma-devel
   run:
     # We want to be pinned to the exact qt version
     - qt6-main {{ version }}
