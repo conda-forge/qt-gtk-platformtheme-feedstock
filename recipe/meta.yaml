@@ -23,6 +23,7 @@ requirements:
     - cmake
     - make                               # [unix]
     - jom                                # [win]
+    - pkg-config
     - ninja
     - perl
     - {{ compiler('cxx') }}
@@ -49,6 +50,7 @@ requirements:
     # Required to find gtk3
     - freetype
     - zlib
+    - liblzma
   run:
     # We want to be pinned to the exact qt version
     - qt6-main {{ version }}
