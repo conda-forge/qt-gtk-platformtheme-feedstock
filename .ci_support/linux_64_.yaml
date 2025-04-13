@@ -26,6 +26,8 @@ gdk_pixbuf:
 - '2'
 glib:
 - '2'
+liblzma_devel:
+- '5'
 pango:
 - '1'
 perl:
