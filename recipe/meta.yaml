@@ -49,6 +49,7 @@ requirements:
     - xorg-xorgproto
     # Required to find gtk3
     - freetype
+    - expat
     - zlib
     - liblzma-devel
   run:
