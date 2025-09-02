@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-{% set version = "5.15.15" %}
-=======
 {% set version = "6.9.1" %}
->>>>>>> upstream/qt6
 
 package:
   name: qt6-gtk-platformtheme
@@ -10,13 +6,8 @@ package:
 
 source:
   # We only need to download the smaller qt-base, not qt-main for this plugin
-<<<<<<< HEAD
-  url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qtbase-everywhere-opensource-src-{{ version }}.tar.xz
-  sha256: e5f941fecf694ecba97c550b45b0634e552166cc6c815bcfdc481edd62796ba1  # 5.15.8
-=======
   url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qtbase-everywhere-src-{{ version }}.tar.xz
   sha256: 40caedbf83cc9a1959610830563565889878bc95f115868bbf545d1914acf28e
->>>>>>> upstream/qt6
 
 build:
   number: 0
@@ -37,19 +28,8 @@ requirements:
     - perl
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
-<<<<<<< HEAD
-    - {{ stdlib("c") }}
-    - qt-main {{ version }}             # [build_platform != target_platform]
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
-    - {{ cdt('mesa-libegl-devel') }}     # [linux]
-    - {{ cdt('mesa-dri-drivers') }}      # [linux]
-    - {{ cdt('libdrm-devel') }}          # [linux]
-    - {{ cdt('libglvnd-glx') }}          # [linux]
-    - {{ cdt('libglvnd-egl') }}          # [linux]
-=======
     - {{ stdlib('c') }}
     - qt6-main {{ version }}             # [build_platform != target_platform]
->>>>>>> upstream/qt6
   host:
     - libdrm                             # [linux]
     - libgl-devel                        # [linux]
