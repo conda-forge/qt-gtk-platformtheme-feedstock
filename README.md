@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qt-gtk-platform
 
 Home: http://qt-project.org
 
-Package license: LGPL-3.0-only
+Package license: LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
 
 Summary: Qt GTK3 platform theme
 
@@ -42,13 +42,6 @@ Current build status
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/qt-gtk-platformtheme-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
                 </a>
               </td>
-            </tr><tr>
-              <td>linux_ppc64le</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=18826&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/qt-gtk-platformtheme-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_" alt="variant">
-                </a>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -62,7 +55,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-qt--gtk--platformtheme-green.svg)](https://anaconda.org/conda-forge/qt-gtk-platformtheme) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/qt-gtk-platformtheme.svg)](https://anaconda.org/conda-forge/qt-gtk-platformtheme) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/qt-gtk-platformtheme.svg)](https://anaconda.org/conda-forge/qt-gtk-platformtheme) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/qt-gtk-platformtheme.svg)](https://anaconda.org/conda-forge/qt-gtk-platformtheme) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-qt6--gtk--platformtheme-green.svg)](https://anaconda.org/conda-forge/qt6-gtk-platformtheme) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/qt6-gtk-platformtheme.svg)](https://anaconda.org/conda-forge/qt6-gtk-platformtheme) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/qt6-gtk-platformtheme.svg)](https://anaconda.org/conda-forge/qt6-gtk-platformtheme) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/qt6-gtk-platformtheme.svg)](https://anaconda.org/conda-forge/qt6-gtk-platformtheme) |
 
 Installing qt-gtk-platformtheme
 ===============================
@@ -74,41 +67,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `qt-gtk-platformtheme` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `qt6-gtk-platformtheme` can be installed with `conda`:
 
 ```
-conda install qt-gtk-platformtheme
-```
-
-or with `mamba`:
-
-```
-mamba install qt-gtk-platformtheme
-```
-
-It is possible to list all of the versions of `qt-gtk-platformtheme` available on your platform with `conda`:
-
-```
-conda search qt-gtk-platformtheme --channel conda-forge
+conda install qt6-gtk-platformtheme
 ```
 
 or with `mamba`:
 
 ```
-mamba search qt-gtk-platformtheme --channel conda-forge
+mamba install qt6-gtk-platformtheme
+```
+
+It is possible to list all of the versions of `qt6-gtk-platformtheme` available on your platform with `conda`:
+
+```
+conda search qt6-gtk-platformtheme --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search qt6-gtk-platformtheme --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search qt-gtk-platformtheme --channel conda-forge
+mamba repoquery search qt6-gtk-platformtheme --channel conda-forge
 
-# List packages depending on `qt-gtk-platformtheme`:
-mamba repoquery whoneeds qt-gtk-platformtheme --channel conda-forge
+# List packages depending on `qt6-gtk-platformtheme`:
+mamba repoquery whoneeds qt6-gtk-platformtheme --channel conda-forge
 
-# List dependencies of `qt-gtk-platformtheme`:
-mamba repoquery depends qt-gtk-platformtheme --channel conda-forge
+# List dependencies of `qt6-gtk-platformtheme`:
+mamba repoquery depends qt6-gtk-platformtheme --channel conda-forge
 ```
 
 
@@ -179,7 +172,10 @@ Feedstock Maintainers
 =====================
 
 * [@conda-forge/qt-main](https://github.com/orgs/conda-forge/teams/qt-main/)
+<<<<<<< HEAD
 
 
 <!-- dummy commit to enable rerendering -->
+=======
+>>>>>>> upstream/qt6
 
