@@ -10,7 +10,7 @@ source:
   sha256: e5f941fecf694ecba97c550b45b0634e552166cc6c815bcfdc481edd62796ba1  # 5.15.8
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not linux]
   detect_binary_files_with_prefix: true
   run_exports:
