@@ -16,8 +16,8 @@ cp ${RECIPE_DIR}/gtk_theme_CMakeLists.txt CMakeLists.txt
 mkdir -p build
 cd build
 
-cmake ${CMAKE_ARGS} \
-    -DCMAKE_BUILD_TYPE="Release"    \
+cmake ${CMAKE_ARGS}                 \
+    -DQT_HOST_PATH=${PREFIX}        \
     -DCMAKE_PREFIX_PATH=${PREFIX}   \
     ..
 

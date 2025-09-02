@@ -1,40 +1,41 @@
-{% set version = "5.15.15" %}
+{% set version = "6.9.2" %}
 
 package:
-  name: qt-gtk-platformtheme
+  name: qt6-gtk-platformtheme
   version: {{ version }}
 
 source:
   # We only need to download the smaller qt-base, not qt-main for this plugin
-  url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qtbase-everywhere-opensource-src-{{ version }}.tar.xz
-  sha256: e5f941fecf694ecba97c550b45b0634e552166cc6c815bcfdc481edd62796ba1  # 5.15.8
+  url: https://download.qt.io/official_releases/qt/{{ version.rpartition('.')[0] }}/{{ version }}/submodules/qtbase-everywhere-src-{{ version }}.tar.xz
+  sha256: 44be9c9ecfe04129c4dea0a7e1b36ad476c9cc07c292016ac98e7b41514f2440
+
 
 build:
   number: 0
   skip: true  # [not linux]
+  # ppc64le not yet built for qt6
+  skip: true  # [ppc64le]
   detect_binary_files_with_prefix: true
   run_exports:
-    - {{ pin_subpackage('qt-gtk-platformtheme', max_pin='x.x') }}
+    - {{ pin_subpackage('qt6-gtk-platformtheme', max_pin='x.x') }}
 
 requirements:
   build:
     - cmake
     - make                               # [unix]
     - jom                                # [win]
+    - pkg-config
     - ninja
     - perl
     - {{ compiler('cxx') }}
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
-    - qt-main {{ version }}             # [build_platform != target_platform]
-    - {{ cdt('mesa-libgl-devel') }}      # [linux]
-    - {{ cdt('mesa-libegl-devel') }}     # [linux]
-    - {{ cdt('mesa-dri-drivers') }}      # [linux]
-    - {{ cdt('libdrm-devel') }}          # [linux]
-    - {{ cdt('libglvnd-glx') }}          # [linux]
-    - {{ cdt('libglvnd-egl') }}          # [linux]
+    - {{ stdlib('c') }}
+    - qt6-main {{ version }}             # [build_platform != target_platform]
   host:
-    - qt-main {{ version }}
+    - libdrm                             # [linux]
+    - libgl-devel                        # [linux]
+    - libegl-devel                       # [linux]
+    - qt6-main {{ version }}
     - glib
     - gtk3
     - pango
@@ -46,19 +47,27 @@ requirements:
     - xorg-libxcursor
     - xorg-libxcomposite
     - xorg-libxdamage
-    - xorg-xineramaproto
+    - xorg-xorgproto
+    # Required to find gtk3
+    - freetype
+    - expat
+    - zlib
+    - liblzma-devel
   run:
     # We want to be pinned to the exact qt version
-    - qt-main {{ version }}
+    - qt6-main {{ version }}
 
 test:
   commands:
-    - test -f "${PREFIX}/plugins/platformthemes/libqgtk3${SHLIB_EXT}"
+    - test -f "${PREFIX}/lib/qt6/plugins/platformthemes/libqgtk3${SHLIB_EXT}"
 
 about:
   home: http://qt-project.org
-  license: LGPL-3.0-only
-  license_file: LICENSE.LGPLv3
+  license: LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
+  license_file:
+    - LICENSES/LGPL-3.0-only.txt
+    - LICENSES/GPL-2.0-only.txt
+    - LICENSES/GPL-3.0-only.txt
   summary: Qt GTK3 platform theme
   dev_url: https://github.com/qt/qtbase/tree/5.15/src/plugins/platformthemes/gtk3
 
@@ -66,3 +75,4 @@ about:
 extra:
   recipe-maintainers:
     - conda-forge/qt-main
+  feedstock-name: qt-gtk-platformtheme
