@@ -172,4 +172,3 @@ Feedstock Maintainers
 =====================
 
 * [@conda-forge/qt-main](https://github.com/orgs/conda-forge/teams/qt-main/)
-
