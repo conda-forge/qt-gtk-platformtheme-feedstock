@@ -7,5 +7,3 @@ conda_forge_output_validation: true
 provider:
   linux_aarch64: default
   linux_64: default
-build_platform:
-  linux_aarch64: linux_64
